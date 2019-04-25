@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": ["../../node_modules/jquery/dist/jquery.min.js",
+              "../src/assets/js/auth.js"],
             "es5BrowserSupport": true
           },
           "configurations": {

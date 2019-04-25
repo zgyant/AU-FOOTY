@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LadderComponent } from './ladder/ladder.component';
@@ -11,6 +11,8 @@ import {RouterModule} from '@angular/router';
 import { FixturesComponent } from './fixtures/fixtures.component';
 import { TipsComponent } from './tips/tips.component';
 import { TeamsComponent } from './teams/teams.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { TeamsComponent } from './teams/teams.component';
   ],
   imports: [
     BrowserModule,
+      HttpClientModule,
     AppRoutingModule, RouterModule.forRoot([
           {path: '', component: DashboardComponent},
         {path: 'ladder', component: LadderComponent},
