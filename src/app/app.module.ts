@@ -18,7 +18,8 @@ import { HomeComponent } from './components/home/home/home.component';
 import { NearestComponent } from './components/geolocation/nearest/nearest.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
-import { TeamsComponent } from './teams/teams.component';
+import { HeadToHeadComponent } from './components/head-to-head/head-to-head.component';
+import { UpcomingPredictionComponent } from './components/home/upcoming-prediction/upcoming-prediction.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,9 @@ import { TeamsComponent } from './teams/teams.component';
     HeaderComponent,
     FixturesComponent,
     TipsComponent,
-    TeamsComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeadToHeadComponent,
+    UpcomingPredictionComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { TeamsComponent } from './teams/teams.component';
       {path: 'fixtures', component: FixturesComponent},
       {path: 'ladder', component: LadderComponent},
       {path: 'tips', component: TipsComponent},
-      {path: 'teams', component: TeamsComponent},
+      {path: 'head2head', component: HeadToHeadComponent}
+      // {path: 'teams', component: TeamsComponent},
     ])
   ],
   providers: [],

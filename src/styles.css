@@ -5,35 +5,57 @@ html,body{margin: 0;padding:0;width: 100%;font-family: 'Heebo';font-size: 13px; 
 h1,h2,h3,h4,h5{font-weight: 800;letter-spacing: 2px;font-family: 'Lato';}
 
 a{
-  color:black;
-  text-decoration: none;
-  background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, transparent 50%, #ac9766 50%);
+  color:#3F51B5;
+  text-decoration: none !important;
+  /* background-size: 100% 200%; */
+  /* background-image: linear-gradient(to bottom, transparent 50%, #ac9766 50%); */
   transition: background-position 0.3s;
 }
-a:hover {background-position: 0 100%;}
+a:hover {
+  /* background-position: 0 100%; */
+  text-decoration: none !important;
+  color: black;
+}
 
-.inset{max-width: 1000px; margin: 0 auto;}
-.outset{max-width: 1000px; margin: 0 auto;}
+table{width: 100%;}
+
+.inset{max-width: 1200px; margin: 0 auto;width: 90%;}
+.outset{max-width: 1200px; margin: 0 auto;}
+.full{width: 100%;}
 
 .dark-blue{background-color: #272740;}
 .orange{background-color: #ffd7a5;}
 
+.muted{color: gray;font-size: 10px;}
 .text-orange{color: #ffd7a5;}
 .text-dark-blue{color: #272740;}
+.text-blue{color: #3F51B5;}
 
 .text-right{text-align: right;}
 .text-center{text-align: center;}
+.float-right{float: right;}
+
+.right-link{display: inline-block; margin: 0.25rem 0;float: right;font-size: 12px;}
 
 ul{margin: 0;padding: 0;}
 ul li{list-style-type: none;}
 
-.inline-team-logo{height: 20px;}
-.scores{border: 1px solid #272740;padding: 0 0.5rem;}
+.inline-team-logo{height: 20px;margin: 0 0.5rem;}
+.scores{border: 1px solid #272740;background: #efefef; padding: 0 0.5rem;}
 
-span.tip {
+.tip {
   color: rgb(10,20,50);
   font-weight: bold;
   background: #efefef;
   padding: 0.5rem;
+}
+
+.live::before{
+  content: '';
+  width: 10px;
+  height: 10px;
+  margin-right: 0.5rem;
+  display: inline-block;
+  background: red;
+  border-radius: 0.5rem;
 }

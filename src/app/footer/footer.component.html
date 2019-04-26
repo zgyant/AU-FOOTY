@@ -1,28 +1,22 @@
-<footer class="orange">
+<footer class="dark-blue">
   <div class="row">
-    <div class="col-md-6">
-      <h1 class="text-dark-blue">AUFooty</h1>
-
-    </div>
-    <div class="col-md-3">
-      <h3>Follow</h3>
-      <ul>
-        <li><a href="">Twitter</a></li>
-        <li><a href="">Instagram</a></li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <h3>Links</h3>
-      <ul>
-        <li><a href="">Fixtures</a></li>
-        <li><a href="">Ladder</a></li>
-        <li><a href="">Ladder</a></li>
-        <li><a href="">Ladder</a></li>
-      </ul>
-    </div>
-    <div class="col-md-6 dark-blue sub-footer">
-        <a class="to-top" href="#"><span>⬆</span>To top</a>
-        <p>&copy; 2019, ICE Project.</p>
+    <div class="col-md-12">
+        <a id="toTop" class="to-top" href="#"><span>⬆</span><br />To top</a>
+        <p>&nbsp;</p>
+        <ul>
+            <li><a routerLink="/fixtures">Fixtures</a></li>
+            <li><a routerLink="/ladder">Ladder</a></li>
+            <li><a routerLink="/tips">Tips</a></li>
+            <li><a routerLink="/head2head">Head to head</a></li>
+        </ul>
+        <p class="text-center">&copy; 2019, ICE Project.</p>
     </div>
   </div>
 </footer>
+<script>
+$(document).ready(function () {
+  $('#toTop').on('click',function(e){
+
+  });
+});
+</script>
