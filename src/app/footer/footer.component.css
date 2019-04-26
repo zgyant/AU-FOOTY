@@ -1,0 +1,39 @@
+
+h1{font-size: 3rem;}
+h3{
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid;
+}
+a{
+  background-image: linear-gradient(to bottom, transparent 50%, #fff 50%);
+}
+.dark-blue{
+  color: #ffd7a5;
+}
+.to-top{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  background: #ffecc9;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+footer .row  > *{padding: 0 3rem;}
+.to-top:hover span,.to-top:focus span,.to-top:active span{
+  animation: pulse 1s infinite;
+  animation-timing-function: linear;
+}
+ul li{display: block;padding: 0.25rem 0;}
+.sub-footer{padding: 1rem 3rem !important;}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4);}
+  100% { transform: scale(1); }
+}

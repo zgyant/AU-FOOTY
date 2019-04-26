@@ -1,0 +1,29 @@
+.banner-image{width: 100%;height: 100%;overflow: hidden;}
+.banner-image img{
+  max-width: 100%;
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.slider{
+  background: rgba(39, 39, 64,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 500px;
+  position: relative;
+}
+table{
+  border-top: 5px solid #ffd7a5;
+  position: absolute;
+  left: 10%;
+  top: 60px;
+  z-index: 3;
+  background: white;
+  max-width: 250px;
+  width: 100%;
+}
+tr td, tr th{padding: 0.5rem;}
+tr td{border-bottom:  1px solid #efefef;}
