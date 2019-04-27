@@ -12,7 +12,7 @@ import { FixturesComponent } from './fixtures/fixtures.component';
 import { TipsComponent } from './tips/tips.component';
 import { TeamsComponent } from './teams/teams.component';
 
-
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [

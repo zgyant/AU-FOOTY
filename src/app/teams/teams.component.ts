@@ -27,12 +27,18 @@ export class TeamsComponent implements OnInit {
         //“As a fan, I want to see the prediction that my team will win their next game”
         //const GET_URL='https://api.squiggle.com.au/?q=tips;year='+year;
 
+        //“As a fan, I want to see the head-to-head games and if available, results between my team and my
+        // team’s rival <..> this season”
+        //const GET_URL='https://api.squiggle.com.au/?q=games'
+;
+
+        //“As a fan, I want to see opponent and games details for the next 5 matches my team will play”
+        //const GET_URL='https://api.squiggle.com.au/?q=tips;year='+year;
 
 
         this.http
             .get(GET_URL)
             .subscribe(data => {
-                //console.log(data);
                 parseData(data);
             });
 
@@ -68,6 +74,37 @@ export class TeamsComponent implements OnInit {
                }
                 }*/
 
+               //“As a fan, I want to see the head-to-head games and if available, results between my team and my
+                // team’s rival <..> this season”
+
+               /* if(obj.ateamid==myTeamId || obj.hteamid==myTeamd && (obj.ateamid==rivalTeamID || obj.hteamid==rivalTeamID))
+                {
+                    if(gameDate<currentdate)
+                    {
+                        game.push(obj);
+                    }
+                }*/
+
+                //“As a fan, I want to see opponent and games details for the next 5 matches my team will play”
+
+                /* if(gameDate>currentdate)
+                {
+                    if(obj.date>datetime)
+               {
+                  if(obj.ateamid==myTeamId || obj.hteamid==myTeamId)
+                  {
+                   if(obj.tipteamid==myTeamId)
+                   {  if(game.length<=5)
+                   {
+                       games.push(obj);
+                     }
+                   }
+                  }
+               }
+                }*/
+
+
+                
 
             })
             return games;
