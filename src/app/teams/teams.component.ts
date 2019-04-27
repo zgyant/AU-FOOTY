@@ -35,12 +35,16 @@ export class TeamsComponent implements OnInit {
         //“As a fan, I want to see opponent and games details for the next 5 matches my team will play”
         //const GET_URL='https://api.squiggle.com.au/?q=tips;year='+year;
 
+        // “As a fan, I want to see the games that are playing at the closest stadium to my current
+        // location”
+        //const GET_URL='https://api.squiggle.com.au/?q=games'
 
         this.http
             .get(GET_URL)
             .subscribe(data => {
                 parseData(data);
             });
+
 
 
 
@@ -104,7 +108,41 @@ export class TeamsComponent implements OnInit {
                 }*/
 
 
-                
+            //“As a fan, I want to see the games that are playing at the closest stadium to my current location”
+
+                //my google api key: AIzaSyD5sNcTWrCpuDoXUOTh5w_cNKtHH_rToN0
+
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                       console.log("Geolocation is not supported by this browser.");
+                    }
+
+                function showPosition(position) {
+                    const myLat=position.coords.latitude;
+                    const myLong=position.coords.longitude;
+
+                console.log(getDistanceFromLatLonInKm(myLat,myLong,59.3225525,13.4619422).toFixed(1));
+
+                function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+                    var R = 6371; // Radius of the earth in km
+                    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+                    var dLon = deg2rad(lon2-lon1);
+                    var a =
+                        Math.sin(dLat/2) * Math.sin(dLat/2) +
+                        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                        Math.sin(dLon/2) * Math.sin(dLon/2)
+                    ;
+                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                    var d = R * c; // Distance in km
+                    return d;
+                }
+
+                function deg2rad(deg) {
+                    return deg * (Math.PI/180);
+                }
+                }
 
             })
             return games;
