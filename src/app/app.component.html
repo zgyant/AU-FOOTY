@@ -1,4 +1,13 @@
-<app-header></app-header>
-<router-outlet>
-
-</router-outlet>
+<app-banner></app-banner>
+<div class="inset">
+  <p>&nbsp;</p>
+  <div class="row">
+    <div class="col-md-8">
+      <router-outlet></router-outlet>
+    </div>
+  <div class="offset-md-1 col-md-3 offset-matches">
+    <app-ladder-preview></app-ladder-preview>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>

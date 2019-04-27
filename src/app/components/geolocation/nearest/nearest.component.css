@@ -1,0 +1,22 @@
+.nearest-game{
+  position: relative;
+  border: 1px solid #efefef;
+  padding: 1rem;
+  border-left: 5px solid rgb(10,20,50);
+  margin-bottom: 2rem;
+}
+.tag{
+  position: absolute;
+  right: 0;
+  top: 0rem;
+  background:#3F51B5;
+  color: white;
+  font-size: 12px;
+  display: block;
+  padding: 0.25rem 0.5rem;
+}
+a.tip{
+  background:#3F51B5;
+  color: white;
+  padding: 0.5rem 1rem;
+}
