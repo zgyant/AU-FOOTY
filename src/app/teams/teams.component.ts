@@ -13,13 +13,16 @@ export class TeamsComponent implements OnInit {
     }
 
     ngOnInit() {
-
-
-
-
+        var myLat;
+        var myLong;
+        const myAddress;
         const d=new Date();
         const year=d.getFullYear();
-        console.log(year);
+        var previousDistance=10000;
+
+
+
+        // console.log(year);
 
         //“As a fan, I want to see all the games and results so far this season for my team”
         const GET_URL = 'https://api.squiggle.com.au/?q=games;year='+year;
@@ -47,11 +50,36 @@ export class TeamsComponent implements OnInit {
 
 
 
-
         function  parseData(data)
         {
+            var objRequired;
             var games =new Array();
+
             $.each(data.games,function (i,obj) {
+                var gLat;
+                var gLong;
+                $.ajax({
+                    url:"https://maps.googleapis.com/maps/api/geocode/json?address="+obj.venue+"&country=Australia&key=AIzaSyD5sNcTWrCpuDoXUOTh5w_cNKtHH_rToN0",
+                    success:function(gdata) {
+                        gLat = gdata.results[0].geometry.location.lat;
+                        gLong = gdata.results[0].geometry.location.lng;
+                        var dis = getDistanceFromLatLonInKm(myLat, myLong, gLat, gLong);
+                        if (dis < previousDistance) {
+                             //objRequired = obj;
+                            games[0]=obj;
+                            previousDistance=dis;
+                        }
+                    }
+                });
+
+                // this.http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+myAddress+'&key=AIzaSyD5sNcTWrCpuDoXUOTh5w_cNKtHH_rToN0').
+                // subscribe(gdata=>{
+                //         console.log(gdata);
+                //         //gData(gdata);
+                //     }
+                // );
+
+                this.myAddress=obj.venue;
                 //“As a fan, I want to see all the games and results so far this season for my team”
 
                 // if(obj.ateamid==myTeamId||obj.hteamid==myTeamId)
@@ -119,34 +147,39 @@ export class TeamsComponent implements OnInit {
                        console.log("Geolocation is not supported by this browser.");
                     }
 
-                function showPosition(position) {
-                    const myLat=position.coords.latitude;
-                    const myLong=position.coords.longitude;
 
-                console.log(getDistanceFromLatLonInKm(myLat,myLong,59.3225525,13.4619422).toFixed(1));
+                function showPosition(position,gLat,gLong) {
+                     myLat=position.coords.latitude;
+                     myLong=position.coords.longitude;
+                    }
 
-                function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-                    var R = 6371; // Radius of the earth in km
-                    var dLat = deg2rad(lat2-lat1);  // deg2rad below
-                    var dLon = deg2rad(lon2-lon1);
-                    var a =
-                        Math.sin(dLat/2) * Math.sin(dLat/2) +
-                        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                        Math.sin(dLon/2) * Math.sin(dLon/2)
-                    ;
-                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                    var d = R * c; // Distance in km
-                    return d;
-                }
 
-                function deg2rad(deg) {
-                    return deg * (Math.PI/180);
-                }
-                }
 
-            })
+            });
+
+            console.log(games);
+            function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+                var R = 6371; // Radius of the earth in km
+                var dLat = deg2rad(lat2-lat1);  // deg2rad below
+                var dLon = deg2rad(lon2-lon1);
+                var a =
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2)
+                ;
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                var d = R * c; // Distance in km
+                // console.log(d);
+
+                return d;
+            }
+
+            function deg2rad(deg) {
+                return deg * (Math.PI/180);
+            }
             return games;
         }
+
     }
 
 
