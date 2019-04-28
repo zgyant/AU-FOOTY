@@ -3,6 +3,7 @@
 
 html,body{margin: 0;padding:0;width: 100%;font-family: 'Heebo';font-size: 13px; letter-spacing: 0.5px;}
 h1,h2,h3,h4,h5{font-weight: 800;letter-spacing: 2px;font-family: 'Lato';}
+.page-heading{margin-bottom: 2rem;}
 
 a{
   color:#3F51B5;
