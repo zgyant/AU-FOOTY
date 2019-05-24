@@ -15,7 +15,8 @@ export class TeamsComponent implements OnInit {
     ngOnInit() {
         var myLat;
         var myLong;
-        const myAddress;
+        // const myAddress;
+        var myAddress;
         const d=new Date();
         const year=d.getFullYear();
         var previousDistance=10000;
@@ -142,7 +143,7 @@ export class TeamsComponent implements OnInit {
 
 
                     if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(showPosition);
+                        // navigator.geolocation.getCurrentPosition(showPosition);
                     } else {
                        console.log("Geolocation is not supported by this browser.");
                     }

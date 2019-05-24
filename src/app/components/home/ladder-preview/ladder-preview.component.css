@@ -1,0 +1,13 @@
+h6{
+  text-align: center;
+  color: #040626;
+}
+.ladder-preview{
+  padding: 0.5rem 1rem;
+    background: white;
+    box-shadow: 0 2px 15px -2px rgba(0,0,0,0.15);
+    max-width: 260px;
+    width: 100%;
+}
+table{border-top: none;}
+tr td, tr th{padding: 0.25rem 0.5rem;}

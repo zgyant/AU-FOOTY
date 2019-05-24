@@ -1,0 +1,14 @@
+.team {
+  font-size: 16px;
+  color: #3F51B5;
+  font-weight: bold;
+  font-family: Lato;
+  margin: 0.5rem;
+}
+.versus{ margin: 0 2rem;}
+.tip-item {
+  border-left: 3px solid #272740;
+  border-bottom: 1px solid #ededed;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
