@@ -71,3 +71,10 @@ ul li{list-style-type: none;}
 .offset-matches{
   margin-top: 280px;
 }
+select {
+  border: 1px solid rgba(0,0,0,.12);
+  vertical-align: sub;
+  width: 100px;
+  display: inline-block;
+  margin: 0 1rem 2rem 0;
+}

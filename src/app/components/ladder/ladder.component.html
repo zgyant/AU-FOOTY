@@ -1,96 +1,27 @@
 <h2 class="page-heading">Ladder</h2>
 
+<select id="round" name="round">
+  <option value="">Round 5</option>
+  <option value="">Round 6</option>
+  <option value="">Round 12</option>
+  <option value="">Round 12</option>
+</select>
 <table>
     <thead>
         <tr>
+            <th>Rank</th>
             <th>Team</th>
-            <th>Pts</th>
-            <th>Win</th>
-            <th>Loss</th>
-            <th>Draw</th>
+            <th>Wins</th>
             <th>%</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                <img class="inline-team-logo" src="/assets/images/1.png" alt="">Adelaide
-            </td>
-            <td>4</td>
-            <td>2</td>
-            <td>0</td>
-            <td>16</td>
-            <td>124%</td>
-        </tr>
-        <tr>
-            <td>
-                <img class="inline-team-logo" src="/assets/images/2.png" alt="">Brisbane Lions
-            </td>
-            <td>4</td>
-            <td>2</td>
-            <td>0</td>
-            <td>16</td>
-            <td>124%</td>
-        </tr>
-        <tr>
-            <td>
-                <img class="inline-team-logo" src="/assets/images/3.png" alt="">Carlton
-            </td>
-            <td>4</td>
-            <td>2</td>
-            <td>0</td>
-            <td>16</td>
-            <td>124%</td>
-        </tr>
-        <tr>
-            <td>
-                <img class="inline-team-logo" src="/assets/images/4.png" alt="">Collingwood
-            </td>
-            <td>4</td>
-            <td>2</td>
-            <td>0</td>
-            <td>16</td>
-            <td>124%</td>
-        </tr>
-        <tr>
-            <td>
-                <img class="inline-team-logo" src="/assets/images/1.png" alt="">Adelaide
-            </td>
-            <td>4</td>
-            <td>2</td>
-            <td>0</td>
-            <td>16</td>
-            <td>124%</td>
-        </tr>
-        <tr>
-            <td>
-                <img class="inline-team-logo" src="/assets/images/2.png" alt="">Brisbane Lions
-            </td>
-            <td>4</td>
-            <td>2</td>
-            <td>0</td>
-            <td>16</td>
-            <td>124%</td>
-        </tr>
-        <tr>
-            <td>
-                <img class="inline-team-logo" src="/assets/images/3.png" alt="">Carlton
-            </td>
-            <td>4</td>
-            <td>2</td>
-            <td>0</td>
-            <td>16</td>
-            <td>124%</td>
-        </tr>
-        <tr>
-            <td>
-                <img class="inline-team-logo" src="/assets/images/4.png" alt="">Collingwood
-            </td>
-            <td>4</td>
-            <td>2</td>
-            <td>0</td>
-            <td>16</td>
-            <td>124%</td>
+        <tr *ngFor="let team of ladder">
+            <td>{{team.rank}}</td>
+            <td><img class="inline-team-logo" src="/assets/images/{{team.teamid}}.png" alt="{{team.team}}" />
+              {{team.team}}</td>
+            <td>{{team.wins}}</td>
+            <td>{{team.percentage}}%</td>
         </tr>
     </tbody>
 </table>

@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { map, filter, catchError } from "rxjs/operators";
 import {Game} from './models/game'
 import { Team } from './models/team';
+import { Tip } from './models/tip';
+import { Ladder } from './models/ladder';
 
 
 @Injectable({
@@ -13,7 +15,7 @@ import { Team } from './models/team';
 export class ApiService {
 
   API_ROOT = "https://api.squiggle.com.au/";
-  API_ROOT_HTH ='https://api.squiggle.com.au/?q=games';
+
   currentYear = new Date().getFullYear();
   myTeam: Team;
 
@@ -22,10 +24,24 @@ export class ApiService {
   onInit(){
   }
 
+  getLadder(): Observable<Ladder[]>{
+    let url = this.API_ROOT+"?q=ladder;year=" + this.currentYear;
+    return this.http.get<Ladder[]>(url).pipe(
+      catchError(this.handleError('getLadder', []))
+    )
+  };
+
   getAllTeams(): Observable<Team[]>{
     let url = this.API_ROOT + "?q=teams;";
     return this.http.get<Team[]>(url).pipe(
-      catchError(this.handleError('getAllGamesAndResults', []))
+      catchError(this.handleError('getAllTeams', []))
+    )
+  }
+
+  getTips(): Observable<Tip[]> {
+    let url = this.API_ROOT + "?q=tips;year=" + this.currentYear;
+    return this.http.get<Tip[]>(url).pipe(
+      catchError(this.handleError('getTips', []))
     )
   }
 
@@ -39,10 +55,10 @@ export class ApiService {
 
   getAllHeadtoHead():Observable<Game[]>
   {
-     const url=this.API_ROOT_HTH;
+     const url=this.API_ROOT + "?q=games";
      return this.http.get<Game[]>(url) .pipe(
          map(response => response),
-         catchError(this.handleError('getAllGamesAndResults', []))
+         catchError(this.handleError('getAllHeadtoHead', []))
      );
 
   }

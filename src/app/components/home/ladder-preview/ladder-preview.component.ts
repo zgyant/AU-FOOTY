@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Ladder } from 'src/app/models/ladder';
+import { Team } from 'src/app/models/team';
+import { ApiService } from 'src/app/api.service';
+import { CookieService } from 'ngx-cookie-service';
+import { filter } from 'rxjs/operators';
+import { getAllDebugNodes } from '@angular/core/src/debug/debug_node';
 
 @Component({
   selector: 'app-ladder-preview',
@@ -7,9 +13,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LadderPreviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: ApiService, private cookieService: CookieService) { }
 
-  ngOnInit() {
+  ladder: Ladder[];
+  myTeam: Team;
+
+  getLadder(): void{
+    this.apiService.getLadder()
+      .subscribe(response => {this.ladder = response['ladder'];});
   }
 
+  ngOnInit() {
+    this.myTeam = JSON.parse(this.cookieService.get('my-team'));
+    this.getLadder();
+  }
 }

@@ -3,7 +3,7 @@ import {ApiService} from '../../api.service';
 import { Game } from 'src/app/models/game';
 import { CookieService } from 'ngx-cookie-service';
 import { Team } from 'src/app/models/team';
-declare var $;
+
 @Component({
   selector: 'app-fixtures',
   templateUrl: './fixtures.component.html',
@@ -15,8 +15,8 @@ export class FixturesComponent implements OnInit {
 
   getFixtures(): void {
     this.apiService.getAllGamesAndResults()
-      .subscribe(games => {
-        let filtered = games['games'];
+      .subscribe(response => {
+        let filtered = response['games'];
         this.games = filtered.filter(game => {
           return game.ateamid == this.myTeam.id || game.hteamid == this.myTeam.id;
         })
@@ -27,6 +27,5 @@ export class FixturesComponent implements OnInit {
   ngOnInit() {
     this.getFixtures();
     this.myTeam = JSON.parse(this.cookieService.get('my-team'));
-    $('#fixtureTable').DataTable();
   }
 }
