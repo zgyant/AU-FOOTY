@@ -20,7 +20,11 @@ export class LadderPreviewComponent implements OnInit {
 
   getLadder(): void{
     this.apiService.getLadder()
-      .subscribe(response => {this.ladder = response['ladder'];});
+    .subscribe(response => {
+      this.ladder = response['ladder'].sort((a: Ladder, b: Ladder) => {
+        return a.rank - b.rank
+      });
+    });
   }
 
   ngOnInit() {
