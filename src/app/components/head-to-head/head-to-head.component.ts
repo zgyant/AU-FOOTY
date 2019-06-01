@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ApiService} from '../../api.service';
+import { CookieService } from 'ngx-cookie-service';
 import {Game} from '../../models/game';
+import {Team} from '../../models/team';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-head-to-head',
@@ -10,7 +13,8 @@ import {Game} from '../../models/game';
 })
 export class HeadToHeadComponent implements OnInit {
     gamesFil: Game[];
-
+    myTeam: Team;
+    myTeamR: Team;
     getHeadtoHead(): void {
         this.apiService.getAllHeadtoHead()
             .subscribe(games => {this.parseData(games)});
@@ -25,7 +29,8 @@ export class HeadToHeadComponent implements OnInit {
          $.each(games.games,function (i,obj) {
               const gameDate=new Date(obj.date);
 
-              if((obj.ateamid==myTeamId || obj.hteamid==myTeamId) && (obj.ateamid==rivalTeamID || obj.hteamid==rivalTeamID))
+              console.log(self.myTeam.id);
+              if((obj.ateamid==self.myTeam.id || obj.hteamid==self.myTeam.id) && (obj.ateamid==self.myTeamR.id || obj.hteamid==self.myTeamR.id))
               {
                   if(gameDate<currentdate)
                   {
@@ -37,17 +42,18 @@ export class HeadToHeadComponent implements OnInit {
           {
             allData.push(data);
             self.gamesFil=allData;
-              console.log(self.gamesFil);
-
           }
     }
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService,private cookieService: CookieService, private router: Router) {
 
   }
 
   ngOnInit() {
       this.getHeadtoHead();
+      this.myTeam = JSON.parse(this.cookieService.get('my-team'));
+      this.myTeamR = JSON.parse(this.cookieService.get('my-rteam'));
+
   }
 
 }

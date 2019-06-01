@@ -26,6 +26,7 @@ import { ChooseTeamComponent } from "./components/home/choose-team/choose-team.c
 import { CookieService } from "ngx-cookie-service";
 import * as $ from 'jquery';
 import 'datatables.net';
+import { RivalTeamComponent } from './components/head-to-head/rival-team/rival-team.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import 'datatables.net';
     HeadToHeadComponent,
     UpcomingPredictionComponent,
     TeamsComponent,
-    ChooseTeamComponent
+    ChooseTeamComponent,
+    RivalTeamComponent
   ],
   imports: [
     BrowserModule,

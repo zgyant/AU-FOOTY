@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Team } from 'src/app/models/team';
 import { CookieService } from 'ngx-cookie-service';
+import {Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-choose-team',
@@ -10,7 +13,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class ChooseTeamComponent implements OnInit {
 
-  constructor(private apiService: ApiService, private cookieService: CookieService) { }
+  constructor(private apiService: ApiService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute,
+  ) { }
 
   teams: Team[];
   isTeamSelected: boolean;
@@ -39,5 +43,8 @@ export class ChooseTeamComponent implements OnInit {
     this.cookieService.set('my-team', JSON.stringify(team));
     this.isTeamSelected = true;
     this.selectedTeam = team;
+    //this.router.navigateByUrl(this.router.url, {skipLocationChange: true});
+    location.reload();
   }
+
 }
