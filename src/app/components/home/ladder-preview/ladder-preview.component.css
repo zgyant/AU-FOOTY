@@ -11,3 +11,7 @@ h6{
 }
 table{border-top: none;}
 tr td, tr th{padding: 0.25rem 0.5rem;}
+
+table tr:nth-child(n+5) {
+  display:none;
+}
