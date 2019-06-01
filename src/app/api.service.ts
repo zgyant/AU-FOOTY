@@ -39,7 +39,7 @@ export class ApiService {
   }
 
   getTips(): Observable<Tip[]> {
-    let url = this.API_ROOT + "?q=tips;year=" + this.currentYear;
+    let url = this.API_ROOT + "?q=tips;source=1;year=" + this.currentYear;
     return this.http.get<Tip[]>(url).pipe(
       catchError(this.handleError('getTips', []))
     )

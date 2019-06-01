@@ -53,7 +53,5 @@ export class HeadToHeadComponent implements OnInit {
       this.getHeadtoHead();
       this.myTeam = JSON.parse(this.cookieService.get('my-team'));
       this.myTeamR = JSON.parse(this.cookieService.get('my-rteam'));
-
   }
-
 }

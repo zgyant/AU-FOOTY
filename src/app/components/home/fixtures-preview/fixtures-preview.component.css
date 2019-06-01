@@ -21,3 +21,10 @@ font-size: 14px;
   border-bottom: 1px solid #efefef;
 }
 a{display: block;margin: 1rem 0 0.5rem;text-align: right;}
+@media(max-width: 768px){
+  .upcoming-list{
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+  }
+}

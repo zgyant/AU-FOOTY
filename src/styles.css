@@ -33,7 +33,9 @@ table{width: 100%;}
 
 .text-right{text-align: right;}
 .text-center{text-align: center;}
+
 .float-right{float: right;}
+.float-left{float: left;}
 
 .right-link{display: inline-block; margin: 0.25rem 0;float: right;font-size: 12px;}
 .inline-link{color: #3f51b5;text-decoration: underline;margin: 0 0.5rem;}
@@ -67,9 +69,6 @@ ul li{list-style-type: none;}
   display: inline-block;
   background: red;
   border-radius: 0.5rem;
-}
-.offset-matches{
-  margin-top: 280px;
 }
 select {
   border: 1px solid rgba(0,0,0,.12);

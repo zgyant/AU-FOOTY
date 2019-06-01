@@ -1,23 +1,11 @@
 <h1 class="page-title">Tips</h1>
-
-<div class="tip-item">
-    <p class="live">Live</p>
-    <p class="tip-details">
-        <span class="tip">50.1%</span>
-        <span class="team">Adelaide</span>
-        <span class="versus">VS</span>
-        <span class="team">Brisbane Lions</span>
-        <span class="tip">49.9%</span>
-    </p>
-    <p class="muted">7:50pm, Apr 26, Adelaide Oval, Adelaide, SA.</p>
-</div>
 <div *ngFor="let tip of tips" class="tip-item">
     <p class="tip-details">
         <span class="tip">{{tip.confidence}}%</span>
         <span class="team">{{tip.hteam}}</span>
         <span class="versus">VS</span>
         <span class="team">{{tip.ateam}}</span>
-        <span class="tip float-right">{{ 100.00 - tip.confidence | number: '.2-2'}}%</span>
+        <span class="tip">{{ 100.00 - tip.confidence | number: '.2-2'}}%</span>
     </p>
     <p class="muted">{{tip.date | date: 'long'}}, {{tip.venue}}.</p>
 </div>
