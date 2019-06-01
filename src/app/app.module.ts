@@ -22,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
 import { HeadToHeadComponent } from './components/head-to-head/head-to-head.component';
 import { UpcomingPredictionComponent } from './components/home/upcoming-prediction/upcoming-prediction.component';
 import { TeamsComponent } from './teams/teams.component';
-
+import { ChooseTeamComponent } from "./components/home/choose-team/choose-team.component";
+import { CookieService } from "ngx-cookie-service";
 import * as $ from 'jquery';
 import 'datatables.net';
 
@@ -47,7 +48,8 @@ import 'datatables.net';
     DashboardComponent,
     HeadToHeadComponent,
     UpcomingPredictionComponent,
-    TeamsComponent
+    TeamsComponent,
+    ChooseTeamComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,7 @@ import 'datatables.net';
     ]),
     HttpClientModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
