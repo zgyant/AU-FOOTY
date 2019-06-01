@@ -26,6 +26,7 @@
       <td>{{game.venue}}</td>
       <td>
        <span *ngIf="game.complete == 100">ADE <span class="scores">0 - 0</span> BRI</span>
+       <span class="live" *ngIf="game.complete > 0 && game.complete < 100">LIVE</span>
        <span *ngIf="game.complete == 0">-</span>
       </td>
     </tr>
