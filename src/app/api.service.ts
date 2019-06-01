@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   getLadder(): Observable<Ladder[]>{
-    let url = this.API_ROOT+"?q=ladder;year=" + this.currentYear;
+    let url = this.API_ROOT+"?q=ladder;source=1";
     return this.http.get<Ladder[]>(url).pipe(
       catchError(this.handleError('getLadder', []))
     )
