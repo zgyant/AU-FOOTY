@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../../api.service';
 import { Game } from 'src/app/models/game';
 import { CookieService } from 'ngx-cookie-service';
 import { Team } from 'src/app/models/team';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-fixtures',
