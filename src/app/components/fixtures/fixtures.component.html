@@ -20,13 +20,16 @@
   </tr>
 </thead>
 <tbody>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>Apr 24</td>
-      <td>Adelaide Oval</td>
-      <td>ADE <span class="scores">0 - 0</span> BRI</td>
+    <tr *ngFor="let game of games">
+      <td>{{game.hteam}} <span class=""> vs </span> {{game.ateam}}</td>
+      <td>{{game.date | date: 'medium'}}</td>
+      <td>{{game.venue}}</td>
+      <td>
+       <span *ngIf="game.complete == 100">ADE <span class="scores">0 - 0</span> BRI</span>
+       <span *ngIf="game.complete == 0">-</span>
+      </td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
       <td><span class="live">Live</span></td>
       <td>Adelaide Oval</td>
@@ -37,24 +40,6 @@
       <td>7:30 PM Apr 26</td>
       <td>Adelaide Oval</td>
       <td>-</td>
-    </tr>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>7:30 PM Apr 26</td>
-      <td>Adelaide Oval</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>7:30 PM Apr 26</td>
-      <td>Adelaide Oval</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>7:30 PM Apr 26</td>
-      <td>Adelaide Oval</td>
-      <td>-</td>
-    </tr>
+    </tr> -->
 </tbody>
 </table>
