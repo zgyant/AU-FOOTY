@@ -8,6 +8,7 @@
 <table class="display">
 <thead>
   <tr>
+    <th>Round</th>
     <th>Line up</th>
     <th>Time</th>
     <th>Venue</th>
@@ -16,8 +17,9 @@
 </thead>
 <tbody>
     <tr *ngFor="let game of games">
+      <td>{{game.round}}</td>
       <td>{{game.hteam}} <span class=""> vs </span> {{game.ateam}}</td>
-      <td>{{game.date | date: 'medium'}}</td>
+      <td>{{game.date | date: 'shortTime'}}, {{game.date | date: 'fullDate'}}</td>
       <td>{{game.venue}}</td>
       <td>
        <span *ngIf="game.complete == 100">{{game.hteam}} <span class="scores">{{game.hgoals}} - {{game.agoals}}</span> {{game.ateam}}</span>
