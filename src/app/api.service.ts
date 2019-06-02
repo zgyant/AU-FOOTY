@@ -18,6 +18,7 @@ export class ApiService {
 
   currentYear = new Date().getFullYear();
   myTeam: Team;
+  currentRound=11;
 
   constructor(private http: HttpClient) { }
 
@@ -52,6 +53,15 @@ export class ApiService {
       catchError(this.handleError('getAllGamesAndResults', []))
       );
   }
+
+ getNextFixtures(): Observable<Game[]> {
+    const url = this.API_ROOT + "?q=games;year=" + this.currentYear+";round="+this.currentRound+";complete=0";
+    return this.http.get<Game[]>(url).pipe(
+      map(response => response),
+      catchError(this.handleError('getNextFixtures', []))
+      );
+  }
+
 
   getAllHeadtoHead():Observable<Game[]>
   {

@@ -1,24 +1,8 @@
 <div class="upcoming-list">
   <h6 class="upcoming-list-title">Upcoming games</h6>
-  <div class="upcoming-game">
-    <h6>ADE vs BRI</h6>
-    <p class="muted">7:50pm, Apr 26 Adelaide Oval, Adelaide, SA.</p>
+  <div class="upcoming-game" *ngFor="let game of games">
+    <h6 >{{game.hteam}} vs {{game.ateam}}</h6>
+    <p class="muted">{{game.date | date: 'medium'}} {{game.venue}}</p>
   </div>
-  <div class="upcoming-game">
-    <h6>ADE vs BRI</h6>
-    <p class="muted">7:50pm, Apr 26 Adelaide Oval, Adelaide, SA.</p>
-  </div>
-  <div class="upcoming-game">
-    <h6>ADE vs BRI</h6>
-    <p class="muted">7:50pm, Apr 26 Adelaide Oval, Adelaide, SA.</p>
-  </div>
-  <div class="upcoming-game">
-    <h6>ADE vs BRI</h6>
-    <p class="muted">7:50pm, Apr 26 Adelaide Oval, Adelaide, SA.</p>
-  </div>
-  <div class="upcoming-game">
-    <h6>ADE vs BRI</h6>
-    <p class="muted">7:50pm, Apr 26 Adelaide Oval, Adelaide, SA.</p>
-  </div>
-  <a href="#">View details ➞</a>
+
 </div>
