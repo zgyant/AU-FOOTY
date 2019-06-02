@@ -22,8 +22,8 @@ export class TipsComponent implements OnInit {
       response => {
         let filtered = response['tips'];
         this.tips = filtered.filter(tip => {
-          return tip.tipteamid == this.myTeam.id;
-        })
+          return (tip.ateamid == this.myTeam.id || tip.hteamid == this.myTeam.id) && new Date(tip.date).getTime() > new Date().getTime()
+        });
     });
   }
 

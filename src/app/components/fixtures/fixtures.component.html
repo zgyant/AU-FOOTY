@@ -1,9 +1,4 @@
 <h1 class="page-title">Fixtures</h1>
-<select id="year" name="year">
-    <option value="">2019</option>
-    <option value="">2018</option>
-    <option value="">2017</option>
-  </select>
   <select id="round" name="round">
       <option value="">Round 5</option>
       <option value="">Round 6</option>
@@ -25,7 +20,7 @@
       <td>{{game.date | date: 'medium'}}</td>
       <td>{{game.venue}}</td>
       <td>
-       <span *ngIf="game.complete == 100">ADE <span class="scores">0 - 0</span> BRI</span>
+       <span *ngIf="game.complete == 100">ADE <span class="scores">{{game.hgoals}} - {{game.agoals}}</span> BRI</span>
        <span class="live" *ngIf="game.complete > 0 && game.complete < 100">LIVE</span>
        <span *ngIf="game.complete == 0">-</span>
       </td>
