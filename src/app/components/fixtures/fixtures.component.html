@@ -1,14 +1,11 @@
 <h1 class="page-title">Fixtures</h1>
-  <select id="round" name="round">
-      <option value="">Round 5</option>
-      <option value="">Round 6</option>
-      <option value="">Round 12</option>
-      <option value="">Round 12</option>
-    </select>
+<select (change)="changeRound($event)" id="round" name="round">
+  <option value="0">Your Team: {{myTeam.name}}</option>
+  <option *ngFor="let round of rounds" [value]="round">Round {{round}}</option>
+</select>
 <table class="display">
 <thead>
   <tr>
-    <th>Round</th>
     <th>Line up</th>
     <th>Time</th>
     <th>Venue</th>
@@ -17,7 +14,6 @@
 </thead>
 <tbody>
     <tr *ngFor="let game of games">
-      <td>{{game.round}}</td>
       <td>{{game.hteam}} <span class=""> vs </span> {{game.ateam}}</td>
       <td>{{game.date | date: 'shortTime'}}, {{game.date | date: 'fullDate'}}</td>
       <td>{{game.venue}}</td>
