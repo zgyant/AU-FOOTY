@@ -37,7 +37,11 @@ export class HeadToHeadComponent implements OnInit {
         function pushTo(data)
           {
             allData.push(data);
+              allData.sort(function (a, b) {
+                  return b.date.localeCompare(a.date);
+              });
             self.gamesFil=allData;
+
           }
     }
 
