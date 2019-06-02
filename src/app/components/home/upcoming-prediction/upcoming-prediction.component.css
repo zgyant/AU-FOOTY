@@ -20,8 +20,8 @@
   text-align: center;
 }
 .odds{width: 100%;}
-.odds-bar{display: block; background: #ededed; width: 100%; border-radius: 0.5rem;}
-.odds-fill{display: block;background: #fbbf00;border-radius: 0.5rem;}
-
+.odds-bar{position: relative; display: block; background: #ededed; width: 100%; height: 20px; border-radius: 0.5rem;}
+.odds-fill{position: absolute; left: 0; top: 0; display: block;background: #fbbf00;border-radius: 0.5rem; height: 100%;}
+.odds-fill.right{right: 0;left: auto;}
 .odds-tile{position: relative;}
 .odds-tile .tip{position: absolute;}

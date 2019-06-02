@@ -9,7 +9,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let team of ladder">
-                <td>{{team.team}}</td>
+                <td><img class="inline-team-logo" src="/assets/images/{{team.teamid}}.png" alt="{{team.team}}"> {{team.team}}</td>
                 <td>{{team.percentage}}%</td>
             </tr>
         </tbody>

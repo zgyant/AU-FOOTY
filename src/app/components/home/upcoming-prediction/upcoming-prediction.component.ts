@@ -16,8 +16,10 @@ export class UpcomingPredictionComponent implements OnInit {
   tips: Tip[];
   upcomingGameTip: Tip;
   myTeam:Team;
+  da: Date = new Date();
 
   ngOnInit() {
+    this.da.setSeconds(this.da.getSeconds() + 10);
     this.myTeam = JSON.parse(this.cookieService.get('my-team'));
     this.getTips();
   }
@@ -36,5 +38,13 @@ export class UpcomingPredictionComponent implements OnInit {
             return tip;
         });
     });
+  }
+
+  isLive: boolean = false;
+  gameLive(tip: Tip): void{
+    if(!this.isLive){
+      this.isLive = true;
+      console.log('is Live');
+    }
   }
 }
