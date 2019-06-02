@@ -58,4 +58,7 @@ a{display: block;margin: 1rem 0 0.5rem;text-align: right;}
 }
 table{border:none;padding: 0;margin: 0;}
 table tr td{border: none;padding: 0;margin: 0;}
+@media(max-width:928px){
+  .row .col{flex-basis: auto;margin-bottom: 1rem;max-width: 225px; width: 50%;}
+}
 
