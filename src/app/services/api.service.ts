@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, filter, catchError } from "rxjs/operators";
-import {Game} from './models/game'
-import { Team } from './models/team';
-import { Tip } from './models/tip';
-import { Ladder } from './models/ladder';
+import {Game} from 'src/app/models/game'
+import { Team } from 'src/app/models/team';
+import { Tip } from 'src/app/models/tip';
+import { Ladder } from 'src/app/models/ladder';
 
 
 @Injectable({
@@ -40,7 +40,7 @@ export class ApiService {
   }
 
   getTips(): Observable<Tip[]> {
-    let url = this.API_ROOT + "?q=tips;year=" + this.currentYear;
+    let url = this.API_ROOT + "?q=tips;source=1;year=" + this.currentYear;
     return this.http.get<Tip[]>(url).pipe(
       catchError(this.handleError('getTips', []))
     )
@@ -70,7 +70,6 @@ export class ApiService {
          map(response => response),
          catchError(this.handleError('getAllHeadtoHead', []))
      );
-
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Team } from 'src/app/models/team';
 import { Tip } from 'src/app/models/tip';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-tips',

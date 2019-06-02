@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ladder } from 'src/app/models/ladder';
 import { Team } from 'src/app/models/team';
-import { ApiService } from 'src/app/api.service';
+import { ApiService } from 'src/app/services/api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { filter } from 'rxjs/operators';
 import { getAllDebugNodes } from '@angular/core/src/debug/debug_node';

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ApiService} from '../../api.service';
 import { CookieService } from 'ngx-cookie-service';
 import {Game} from '../../models/game';
 import {Team} from '../../models/team';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-head-to-head',
@@ -53,7 +53,5 @@ export class HeadToHeadComponent implements OnInit {
       this.getHeadtoHead();
       this.myTeam = JSON.parse(this.cookieService.get('my-team'));
       this.myTeamR = JSON.parse(this.cookieService.get('my-rteam'));
-
   }
-
 }
