@@ -1,7 +1,8 @@
 <div class="upcoming-list">
   <h6 class="upcoming-list-title">Next 5 matches of 
-    <img class="inline-team-logo" src="/assets/images/{{myTeam.id}}.png" alt="{{myTeam.id}}" />
+    <img class="inline-team-logo" src="/assets/images/{{myTeam.id}}.png" alt="{{myTeam.id}}" /><br /> <span class="muted">Team: {{myTeam.name}}</span> 
   </h6>
+
   <div *ngFor="let game of games" class="upcoming-game">
     
     <h6>

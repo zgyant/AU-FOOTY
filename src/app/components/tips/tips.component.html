@@ -1,11 +1,11 @@
 <h1 class="page-title">Tips</h1>
 <div *ngFor="let tip of tips" class="tip-item">
     <p class="tip-details">
-        <span class="tip">{{tip.confidence}}%</span>
+        <span class="tip">{{tip.hconfidence}}%</span>
         <span class="team">{{tip.hteam}}</span>
         <span class="versus">VS</span>
         <span class="team">{{tip.ateam}}</span>
-        <span class="tip">{{ 100.00 - tip.confidence | number: '.2-2'}}%</span>
+        <span class="tip">{{ 100.00 - tip.hconfidence | number: '.2-2'}}%</span>
     </p>
     <p class="muted">{{tip.date | date: 'long'}}, {{tip.venue}}.</p>
 </div>

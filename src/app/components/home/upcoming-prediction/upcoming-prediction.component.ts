@@ -29,7 +29,7 @@ export class UpcomingPredictionComponent implements OnInit {
           return new Date (a.date).getTime() - new Date(b.date).getTime();
         });
         this.upcomingGameTip = filtered.find(tip => {
-          return tip.tipteamid == this.myTeam.id
+          return (tip.ateamid == this.myTeam.id || tip.hteamid == this.myTeam.id) && new Date(tip.date).getTime() > new Date().getTime()
         });
         this.tips = filtered.filter(tip => {
           if(tip.tipteamid == this.myTeam.id)
