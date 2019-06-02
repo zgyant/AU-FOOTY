@@ -18,7 +18,7 @@
       <td>{{game.date | date: 'shortTime'}}, {{game.date | date: 'fullDate'}}</td>
       <td>{{game.venue}}</td>
       <td>
-       <span *ngIf="game.complete == 100">{{game.hteam}} <span class="scores">{{game.hgoals}} - {{game.agoals}}</span> {{game.ateam}}</span>
+       <span *ngIf="game.complete == 100">{{game.hteam}} <span class="scores">{{game.hscore}} - {{game.ascore}}</span> {{game.ateam}}</span>
        <span class="live" *ngIf="game.complete > 0 && game.complete < 100">LIVE</span>
        <span *ngIf="game.complete == 0">-</span>
       </td>
