@@ -1,8 +1,8 @@
 <div class="upcoming-list">
   <h6 class="upcoming-list-title">Upcoming games</h6>
-  <div class="upcoming-game" *ngFor="let game of games">
-    <h6 >{{game.hteam}} vs {{game.ateam}}</h6>
-    <p class="muted">{{game.date | date: 'medium'}} {{game.venue}}</p>
+  <div *ngFor="let game of games" class="upcoming-game">
+    <h6>{{game.ateam}} vs {{game.hteam}}</h6>
+    <p class="muted">{{game.date | date: 'medium'}}, {{game.venue}}</p>
   </div>
-
+  <a routerLink="/fixtures">View more ➞</a>
 </div>

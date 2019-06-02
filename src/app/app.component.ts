@@ -7,13 +7,4 @@ declare  var $;
 })
 export class AppComponent{
   title = 'AUFooty';
-//     @ViewChild('fixtureTable') table;
-//     dataTable: any;
-//     constructor(){
-//     }
-//
-// ngOnInit(): void {
-//     this.dataTable = $(this.table.nativeElement);
-// this.dataTable.DataTable();
-// }
 }

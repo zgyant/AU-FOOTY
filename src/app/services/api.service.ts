@@ -55,13 +55,12 @@ export class ApiService {
   }
 
  getNextFixtures(): Observable<Game[]> {
-    const url = this.API_ROOT + "?q=games;year=" + this.currentYear+";round="+this.currentRound+";complete=0";
+    const url = this.API_ROOT + "?q=games;year=" + this.currentYear+";complete=0";
     return this.http.get<Game[]>(url).pipe(
       map(response => response),
       catchError(this.handleError('getNextFixtures', []))
       );
   }
-
 
   getAllHeadtoHead():Observable<Game[]>
   {

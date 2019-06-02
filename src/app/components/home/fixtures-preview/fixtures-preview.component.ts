@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../../../api.service';
 import { Game } from 'src/app/models/game';
-import { CookieService } from 'ngx-cookie-service';
 import { Team } from 'src/app/models/team';
+import { ApiService } from 'src/app/services/api.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-fixtures-preview',
@@ -12,12 +12,14 @@ import { Team } from 'src/app/models/team';
 export class FixturesPreviewComponent implements OnInit {
 
 	games: Game[];
-	myTeam= Team;
+	myTeam: Team;
 
 	getNextFixtures(): void {
     this.apiService.getNextFixtures()
       .subscribe(response => {
-        this.games = response['games'];
+        this.games = response['games'].filter(game => {
+          return game.ateamid == this.myTeam.id || game.hteamid == this.myTeam.id;
+        });
       });
   }
 

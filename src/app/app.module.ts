@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/home/banner/banner.component';
 import { LadderPreviewComponent } from './components/home/ladder-preview/ladder-preview.component';
-import { TipsPreviewComponent } from './components/home/tips-preview/tips-preview.component';
 import { FixturesComponent } from './components/fixtures/fixtures.component';
 import { LadderComponent } from './components/ladder/ladder.component';
 import { TipsComponent } from './components/tips/tips.component';
@@ -31,7 +30,6 @@ import { ApiService } from './services/api.service';
     FooterComponent,
     BannerComponent,
     LadderPreviewComponent,
-    TipsPreviewComponent,
     FixturesComponent,
     LadderComponent,
     TipsComponent,
@@ -59,7 +57,7 @@ import { ApiService } from './services/api.service';
     ]),
     HttpClientModule
   ],
-  providers: [CookieService, ApiService],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

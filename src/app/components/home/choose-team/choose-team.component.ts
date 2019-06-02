@@ -13,8 +13,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ChooseTeamComponent implements OnInit {
 
-  constructor(private apiService: ApiService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute,
-  ) { }
+  constructor(private apiService: ApiService, private cookieService: CookieService) { }
 
   teams: Team[];
   isTeamSelected: boolean;
@@ -43,8 +42,6 @@ export class ChooseTeamComponent implements OnInit {
     this.cookieService.set('my-team', JSON.stringify(team));
     this.isTeamSelected = true;
     this.selectedTeam = team;
-    //this.router.navigateByUrl(this.router.url, {skipLocationChange: true});
     location.reload();
   }
-
 }
