@@ -14,10 +14,15 @@ export class NearestComponent implements OnInit {
 
   nearestGames: Game[];
 
+  // ngOnInit() {
+  //   this.apiService.getAllGamesAndResults().subscribe(data => {this.parseData(data);});
+  // }
   ngOnInit() {
-    this.apiService.getAllGamesAndResults().subscribe(data => {this.parseData(data);});
-  }
-
+    // this.apiService.getAllGamesAndResults().subscribe(data => {this.parseData(data);});
+    if(this.nearestGames == null || this.nearestGames.length < 1){
+      this.http.get('https://api.squiggle.com.au/?q=games;year=2019;complete=0;').subscribe(data => {this.parseData(data);});
+    }
+   }
   parseData(data)
   {
     var myLat;
