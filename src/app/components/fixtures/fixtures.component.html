@@ -1,16 +1,11 @@
 <h1 class="page-title">Fixtures</h1>
-<select id="year" name="year">
-    <option value="">2019</option>
-    <option value="">2018</option>
-    <option value="">2017</option>
-  </select>
   <select id="round" name="round">
       <option value="">Round 5</option>
       <option value="">Round 6</option>
       <option value="">Round 12</option>
       <option value="">Round 12</option>
     </select>
-<table>
+<table class="display">
 <thead>
   <tr>
     <th>Line up</th>
@@ -20,41 +15,15 @@
   </tr>
 </thead>
 <tbody>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>Apr 24</td>
-      <td>Adelaide Oval</td>
-      <td>ADE <span class="scores">0 - 0</span> BRI</td>
-    </tr>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td><span class="live">Live</span></td>
-      <td>Adelaide Oval</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>7:30 PM Apr 26</td>
-      <td>Adelaide Oval</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>7:30 PM Apr 26</td>
-      <td>Adelaide Oval</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>7:30 PM Apr 26</td>
-      <td>Adelaide Oval</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>Adelaide <span class=""> vs </span> Brisbane Lions</td>
-      <td>7:30 PM Apr 26</td>
-      <td>Adelaide Oval</td>
-      <td>-</td>
+    <tr *ngFor="let game of games">
+      <td>{{game.hteam}} <span class=""> vs </span> {{game.ateam}}</td>
+      <td>{{game.date | date: 'medium'}}</td>
+      <td>{{game.venue}}</td>
+      <td>
+       <span *ngIf="game.complete == 100">{{game.hteam}} <span class="scores">{{game.hgoals}} - {{game.agoals}}</span> {{game.ateam}}</span>
+       <span class="live" *ngIf="game.complete > 0 && game.complete < 100">LIVE</span>
+       <span *ngIf="game.complete == 0">-</span>
+      </td>
     </tr>
 </tbody>
 </table>

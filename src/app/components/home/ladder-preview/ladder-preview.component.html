@@ -4,40 +4,15 @@
         <thead>
             <tr>
                 <th>Team</th>
-                <th>Pts</th>
                 <th>%</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-Adelaide
-                </td>
-                <td>4</td>
-                <td>124%</td>
-            </tr>
-            <tr>
-                <td>
-Brisbane Lions
-                </td>
-                <td>4</td>
-                <td>124%</td>
-            </tr>
-            <tr>
-                <td>
-Carlton
-                </td>
-                <td>4</td>
-                <td>124%</td>
-            </tr>
-            <tr>
-                <td>
-Collingwood
-                </td>
-                <td>4</td>
-                <td>124%</td>
+            <tr *ngFor="let team of ladder">
+                <td>{{team.team}}</td>
+                <td>{{team.percentage}}%</td>
             </tr>
         </tbody>
     </table>
-<p class="text-right"><a href="" class="link-right">View full ➞</a></p>
+<p class="text-right"><a routerLink="/ladder" class="link-right ">View Full Ladder ➞</a></p>
 </div>

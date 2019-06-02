@@ -1,17 +1,18 @@
-<div class="prediction">
+<div *ngIf="upcomingGameTip" class="prediction">
   <div class="odds-title">
-      Next Match - 7:50pm, Apr 26
-      <span class="muted">Adelaide Oval, Adelaide, SA.</span>
+      Next Match - {{upcomingGameTip.date | date: 'fullDate'}}, {{upcomingGameTip.date | date: 'shortTime'}}
+      <span class="muted">Venue: {{upcomingGameTip.venue}}</span>
   </div>
   <div class="row odds-detail">
-      <h5 class="col-md-2 text-blue"><img class="inline-team-logo" class="" src="/assets/images/1.png" alt=""><br /> ADE</h5>
+      <h5 class="col-md-2 text-blue"><img class="inline-team-logo" src="/assets/images/{{upcomingGameTip.hteamid}}.png" alt=""><br /> {{upcomingGameTip.hteam}}</h5>
       <p class="col-md-8 odds">
-          <span class="odds-bar"><span class="odds-fill" style="width:60.1%">&nbsp;</span></span>
+          <!-- <span class="odds-bar"><span class="odds-fill" [style.width.%]="{'width': upcomingGameTip.hconfidence + '%'}">&nbsp;</span></span> -->
           <br>
-          <span class="tip">Winning odds: 60.1%</span><span>&nbsp;</span>
+          <span class="tip">{{upcomingGameTip.hteam}} winning odds: {{upcomingGameTip.hconfidence}}%</span><span>&nbsp;</span>
+          <span class="tip">{{upcomingGameTip.ateam}} winning odds: {{ 100.00 - upcomingGameTip.hconfidence | number: '.2-2'}}%</span><span>&nbsp;</span>
       </p>
-      <h5 class="col-md-2 text-blue"><img class="inline-team-logo" class="" src="/assets/images/2.png" alt=""><br>BRI</h5>
+      <h5 class="col-md-2 text-blue"><img class="inline-team-logo" src="/assets/images/{{upcomingGameTip.ateamid}}.png" alt=""><br>{{upcomingGameTip.ateam}}</h5>
   </div>
 </div>
-<!-- <p><a class="right-link" href="/tips">More tips ➞</a><br></p> -->
+<p><a class="right-link" routerLink="/tips">More tips ➞</a><br></p>
 

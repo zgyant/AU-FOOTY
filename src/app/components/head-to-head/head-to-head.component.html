@@ -1,27 +1,25 @@
 <h2 class="page-heading">Head to head</h2>
-
 <div class="row">
+    <div class="col-md-6 text-center" *ngIf="myTeam">
+        <img  src="/assets/images/{{myTeam.id}}.png" alt="{{myTeam.name}}_logo" width="80"/>
+            <h5>{{myTeam.name }}</h5>
+    </div>
+
     <div class="col-md-6 text-center">
-        <div style="background-image:url('/assets/images/1.png')" class="h2h-image"></div>
-        <h5>Adelaide</h5>
+        <img   *ngIf="myTeamR" src="/assets/images/{{myTeamR.id}}.png" alt="{{myTeamR.name}}_logo" width="80"/>
+        <h5  *ngIf="myTeamR">{{myTeamR.name}}</h5>
+        <div><app-rival-team></app-rival-team></div>
     </div>
-    <div class="col-md-6 text-center">
-        <div style="background-image:url('/assets/images/2.png')" class="h2h-image"></div>
-        <h5>Brisbane Lions</h5>
-        <a class="muted text-blue">Change rival</a>
-    </div>
-    <div class="col-md-12">
-        <p class="text-center">Total games: 4</p>
-        <div class="h2h-bar">
-            <span style="width:50%" class="h2h-win">Win: 2</span>
-            <span style="width:25%" class="h2h-draw">Draw: 1</span>
-            <span style="width:25%" class="h2h-loss">Loss: 1</span>
-        </div>
-    </div>
+</div>
+<div class="col-md-8" *ngIf="myTeamR && myTeam">
+
+    {{myTeam.name}}
+    vs
+    {{myTeamR.name}}
 </div>
 <table>
     <thead>
-        <tr>
+        <tr >
             <th>Year</th>
             <th>Round</th>
             <th>Home Team</th>
@@ -31,45 +29,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>2019</td>
-            <td>5</td>
-            <td>Adelaide</td>
-            <td><span class="scores">12 - 10</span></td>
-            <td>Brisbane Lions</td>
-            <td>23 April</td>
-        </tr>
-        <tr>
-            <td>2019</td>
-            <td>5</td>
-            <td>Adelaide</td>
-            <td><span class="scores">12 - 10</span></td>
-            <td>Brisbane Lions</td>
-            <td>23 April</td>
-        </tr>
-        <tr>
-            <td>2019</td>
-            <td>5</td>
-            <td>Adelaide</td>
-            <td><span class="scores">12 - 10</span></td>
-            <td>Brisbane Lions</td>
-            <td>23 April</td>
-        </tr>
-        <tr>
-            <td>2019</td>
-            <td>5</td>
-            <td>Adelaide</td>
-            <td><span class="scores">12 - 10</span></td>
-            <td>Brisbane Lions</td>
-            <td>23 April</td>
-        </tr>
-        <tr>
-            <td>2019</td>
-            <td>5</td>
-            <td>Adelaide</td>
-            <td><span class="scores">12 - 10</span></td>
-            <td>Brisbane Lions</td>
-            <td>23 April</td>
+        <tr *ngFor="let game of gamesFil">
+            <td>{{game.year}}</td>
+            <td>{{game.round}}</td>
+            <td>{{game.hteam}}</td>
+            <td><span class="scores">{{game.hscore}} - {{game.ascore}}</span></td>
+            <td>{{game.ateam}}</td>
+            <td>{{game.date}}</td>
         </tr>
     </tbody>
 </table>

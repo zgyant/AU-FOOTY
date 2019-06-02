@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Game } from 'src/app/models/game';
+import { Team } from 'src/app/models/team';
+import { ApiService } from 'src/app/services/api.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-fixtures-preview',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FixturesPreviewComponent implements OnInit {
 
-  constructor() { }
+	games: Game[];
+	myTeam: Team;
 
-  ngOnInit() {
+	getNextFixtures(): void {
+    this.apiService.getNextFixtures()
+      .subscribe(response => {
+        this.games = (response['games'].filter(game => {
+          return game.ateamid == this.myTeam.id || game.hteamid == this.myTeam.id;
+        })).slice(1,6);
+      });
   }
 
+  constructor(private apiService: ApiService, private cookieService: CookieService) { }
+
+  ngOnInit() {
+    this.getNextFixtures();
+    this.myTeam = JSON.parse(this.cookieService.get('my-team'));
+  }
 }

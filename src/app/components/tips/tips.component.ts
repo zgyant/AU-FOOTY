@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { Team } from 'src/app/models/team';
+import { Tip } from 'src/app/models/tip';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-tips',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TipsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: ApiService, private cookieService: CookieService) { }
+
+  tips: Tip[];
+  myTeam:Team;
+
+  getTips(): void{
+    this.apiService.getTips()
+    .subscribe(
+      response => {
+        let filtered = response['tips'];
+        this.tips = filtered.filter(tip => {
+          return (tip.ateamid == this.myTeam.id || tip.hteamid == this.myTeam.id) && new Date(tip.date).getTime() > new Date().getTime()
+        });
+    });
+  }
 
   ngOnInit() {
+    this.myTeam = JSON.parse(this.cookieService.get('my-team'));
+    this.getTips();
   }
 
 }

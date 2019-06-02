@@ -1,0 +1,23 @@
+.overlay {
+  background: #0911296b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 4rem;
+  z-index: 2;
+}
+.popup {background: white;padding: 2rem;}
+a.team {text-align: center; margin-bottom: 2rem; padding: 1rem;cursor: pointer;}
+a.team:hover, a.team:active, a.team:focus {transition: all 0.3s ease-in-out;background: #f2f2f2;}
+.team img{max-height: 70px;}
+.team span{display: block;font-weight: 500;font-size: 14px;margin: 0.5rem 0;}
+.popup-header{text-align: center;padding-bottom: 1rem;border-bottom: 1px solid #f2f2f2;margin-bottom: 1rem;}
+.myteam {
+  background: #fff;
+  float: right;
+  padding: 0.5rem;
+  display: inline-flex;
+  flex-direction: row;
+}

@@ -4,23 +4,20 @@
         <div class="primary-nav col-md-12">
             <div class="row outset">
                 <div class="col-md-4">
-                    <span class="logo">
-                      <!-- <img src="/assets/images/logo-outline.png" alt="">  -->
-                      AUFooty
-                    </span>
+                    <a routerLink="/"><span class="logo">AUFooty</span></a>
                 </div>
                 <div class="col-md-8">
-                  <a href="" class="button right-link">Choose Team</a>
+                  <div><app-choose-team></app-choose-team></div>
                 </div>
             </div>
         </div>
         <div class="sub-nav col-md-12">
             <div class="outset">
                 <ul>
-                    <li><a routerLink="/fixtures">Fixtures</a></li>
-                    <li><a routerLink="/ladder">Ladder</a></li>
-                    <li><a routerLink="/tips">Tips</a></li>
-                    <li><a routerLink="/head2head">Head to head</a></li>
+                    <li><a [routerLinkActive]="'active'" routerLink="/fixtures">Fixtures</a></li>
+                    <li><a [routerLinkActive]="'active'" routerLink="/ladder">Ladder</a></li>
+                    <li><a [routerLinkActive]="'active'" routerLink="/tips">Tips</a></li>
+                    <li><a [routerLinkActive]="'active'" routerLink="/head2head">Head to head</a></li>
                 </ul>
             </div>
         </div>
@@ -29,13 +26,9 @@
             <div class="col-md-8">
                 <h1>Your #1 source for everything Footy</h1>
             </div>
-              <div class="offset-md-1 col-md-3">
-
-                <app-fixtures-preview></app-fixtures-preview>
-                </div>
-                <div class="col-md-12">
-
-                </div>
+            <div class="offset-md-1 col-md-3">
+              <app-fixtures-preview></app-fixtures-preview>
+            </div>
           </div>
         </div>
     </div>
