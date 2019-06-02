@@ -1,8 +1,16 @@
 <div class="upcoming-list">
-  <h6 class="upcoming-list-title">Upcoming games</h6>
+  <h6 class="upcoming-list-title">Next 5 matches of 
+    <img class="inline-team-logo" src="/assets/images/{{myTeam.id}}.png" alt="{{myTeam.id}}" />
+  </h6>
   <div *ngFor="let game of games" class="upcoming-game">
-    <h6>{{game.ateam}} vs {{game.hteam}}</h6>
+    
+    <h6>
+        <img class="inline-team-logo" src="/assets/images/{{game.hteamid}}.png" alt="{{game.hteam}}" />
+
+         {{game.hteam}} vs {{game.ateam}} 
+
+         <img class="inline-team-logo" src="/assets/images/{{game.ateamid}}.png" alt="{{game.ateam}}" />
+    </h6>
     <p class="muted">{{game.date | date: 'medium'}}, {{game.venue}}</p>
   </div>
-  <a routerLink="/fixtures">View more ➞</a>
 </div>

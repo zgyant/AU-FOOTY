@@ -17,9 +17,9 @@ export class FixturesPreviewComponent implements OnInit {
 	getNextFixtures(): void {
     this.apiService.getNextFixtures()
       .subscribe(response => {
-        this.games = response['games'].filter(game => {
+        this.games = (response['games'].filter(game => {
           return game.ateamid == this.myTeam.id || game.hteamid == this.myTeam.id;
-        });
+        })).slice(1,6);
       });
   }
 
