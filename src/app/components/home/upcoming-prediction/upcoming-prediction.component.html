@@ -1,15 +1,19 @@
 <div *ngIf="upcomingGameTip" class="prediction">
   <div class="odds-title">
-      Next Match - {{upcomingGameTip.date | date: 'fullDate'}}, {{upcomingGameTip.date | date: 'shortTime'}}
+    {{myTeam.name}}'s Next Match - {{upcomingGameTip.date | date: 'fullDate'}}, {{upcomingGameTip.date | date: 'shortTime'}}
+    <h6>Starts in <countdown-timer class="text-blue" [end]="upcomingGameTip.date"></countdown-timer></h6>
       <span class="muted">Venue: {{upcomingGameTip.venue}}</span>
   </div>
   <div class="row odds-detail">
       <h5 class="col-md-2 text-blue"><img class="inline-team-logo" src="/assets/images/{{upcomingGameTip.hteamid}}.png" alt=""><br /> {{upcomingGameTip.hteam}}</h5>
       <p class="col-md-8 odds">
-          <!-- <span class="odds-bar"><span class="odds-fill" [style.width.%]="{'width': upcomingGameTip.hconfidence + '%'}">&nbsp;</span></span> -->
+          <span class="odds-bar float-left">
+            <span *ngIf="upcomingGameTip.hteamid == myTeam.id" class="odds-fill"  [style.width.%]="upcomingGameTip.hconfidence">&nbsp;</span>
+            <span *ngIf="upcomingGameTip.ateamid == myTeam.id" class="odds-fill float-right" [style.width.%]="100 - upcomingGameTip.hconfidence | number: '.2-2'">&nbsp;</span>
+          </span>
           <br>
-          <span class="tip">{{upcomingGameTip.hteam}} winning odds: {{upcomingGameTip.hconfidence}}%</span><span>&nbsp;</span>
-          <span class="tip">{{upcomingGameTip.ateam}} winning odds: {{ 100.00 - upcomingGameTip.hconfidence | number: '.2-2'}}%</span><span>&nbsp;</span>
+          <span *ngIf="upcomingGameTip.hteamid == myTeam.id" class="tip">{{upcomingGameTip.hteam}} winning odds: {{upcomingGameTip.hconfidence}}%</span><span>&nbsp;</span>
+          <span *ngIf="upcomingGameTip.ateamid == myTeam.id" class="tip">{{upcomingGameTip.ateam}} winning odds: {{ 100 - upcomingGameTip.hconfidence | number: '.2-2'}}%</span><span>&nbsp;</span>
       </p>
       <h5 class="col-md-2 text-blue"><img class="inline-team-logo" src="/assets/images/{{upcomingGameTip.ateamid}}.png" alt=""><br>{{upcomingGameTip.ateam}}</h5>
   </div>

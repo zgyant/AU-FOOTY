@@ -23,6 +23,7 @@ import * as $ from 'jquery';
 import 'datatables.net';
 import { RivalTeamComponent } from './components/head-to-head/rival-team/rival-team.component';
 import { ApiService } from './services/api.service';
+import { CountdownTimerModule } from 'ngx-countdown-timer';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ApiService } from './services/api.service';
       {path: 'head2head', component: HeadToHeadComponent},
       {path: 'teams', component: TeamsComponent},
     ]),
-    HttpClientModule
+    HttpClientModule,
+    CountdownTimerModule.forRoot()
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
