@@ -28,6 +28,7 @@ export class NearestComponent implements OnInit {
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
+        this.ngOnInit();
     } else {
       console.log("Geolocation is not supported by this browser.");
     }
