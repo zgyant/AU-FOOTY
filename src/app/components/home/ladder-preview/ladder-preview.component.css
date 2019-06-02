@@ -9,7 +9,6 @@ h6{
     box-shadow: 0 2px 15px -2px rgba(0,0,0,0.15);
     max-width: 280px;
     width: 100%;
-    margin-top: 280px;
 }
 table{border-top: none;}
 tr td, tr th{padding: 0.25rem 0.5rem;}

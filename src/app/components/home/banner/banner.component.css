@@ -1,5 +1,7 @@
 
-nav{position: relative; min-height: 300px; background: url('src/assets/images/daniel-anthony-535300-unsplash.jpg');background-size: cover;background-position: center;}
+nav{position: relative; min-height: 250px; background: url('src/assets/images/daniel-anthony-535300-unsplash.jpg');background-size: cover;background-position: center;
+margin-bottom: 100px;
+}
 .primary-nav{height: 100%; padding: 2rem 56px 1rem;}
 .sub-nav{background: rgba(10,20,50,0.5);height: 100%;}
 h1{color: white; font-weight: 600; font-size: 42px;font-family: 'Lato';}

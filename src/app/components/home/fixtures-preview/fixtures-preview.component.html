@@ -1,4 +1,4 @@
-<div class="upcoming-list">
+<!-- <div class="upcoming-list">
   <h6 class="upcoming-list-title">Upcoming matches</h6>
   <p class="muted text-center">Team: {{myTeam.name}}</p>
   <div class="team-logo"><img src="/assets/images/{{myTeam.id}}.png" alt="{{myTeam.id}}" /></div>
@@ -9,6 +9,29 @@
       <img class="inline-team-logo float-right" src="/assets/images/{{game.ateamid}}.png" alt="{{game.ateam}}" />
       <h6>{{game.hteam}} vs {{game.ateam}}</h6>
       <p class="muted">{{game.date | date: 'medium'}}, {{game.venue}}</p>
+    </div>
+  </div>
+</div> -->
+<div class="fixtures inset">
+  <h5 class="fixture-title text-blue">Upcoming games for {{myTeam.name}}</h5>
+  <div class="row">
+    <div *ngFor="let game of games" class="col">
+        <div class="fixture-preview">
+          <table>
+            <tr>
+              <td><h6>{{game.hteam}}</h6></td>
+              <td><img class="inline-team-logo" src="/assets/images/{{game.hteamid}}.png" alt="{{game.hteam}}" /></td>
+            </tr>
+            <tr class="text-center">
+              <td colspan="2">vs</td>
+            </tr>
+            <tr>
+              <td><h6>{{game.ateam}}</h6></td>
+              <td><img class="inline-team-logo" src="/assets/images/{{game.ateamid}}.png" alt="{{game.ateam}}" /></td>
+            </tr>
+            <tr><span class="muted">{{game.date | date: 'short'}}, {{game.venue}}</span></tr>
+          </table>
+        </div>
     </div>
   </div>
 </div>

@@ -24,6 +24,7 @@ import 'datatables.net';
 import { RivalTeamComponent } from './components/head-to-head/rival-team/rival-team.component';
 import { ApiService } from './services/api.service';
 import { CountdownTimerModule } from 'ngx-countdown-timer';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { CountdownTimerModule } from 'ngx-countdown-timer';
       {path: 'teams', component: TeamsComponent},
     ]),
     HttpClientModule,
+    NgxTwitterTimelineModule,
     CountdownTimerModule.forRoot()
   ],
   providers: [CookieService],

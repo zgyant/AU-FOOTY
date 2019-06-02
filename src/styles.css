@@ -77,3 +77,7 @@ select {
   display: inline-block;
   margin: 0 1rem 2rem 0;
 }
+.twitter-feed{
+  max-height: 300px;
+  overflow-y: scroll;
+}
