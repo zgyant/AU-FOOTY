@@ -23,7 +23,7 @@ export class LadderPreviewComponent implements OnInit {
     .subscribe(response => {
       this.ladder = response['ladder'].sort((a: Ladder, b: Ladder) => {
         return a.rank - b.rank
-      });
+      }).slice(0,5);
     });
   }
 
