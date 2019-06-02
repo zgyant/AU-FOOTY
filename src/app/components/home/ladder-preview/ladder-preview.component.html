@@ -3,12 +3,13 @@
     <table>
         <thead>
             <tr>
-                <th>Team</th>
+                <th colspan="2">Team</th>
                 <th>%</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let team of ladder">
+                <td><img class="inline-team-logo" src="/assets/images/{{team.teamid}}.png" alt="{{team.team}}"></td>
                 <td>{{team.team}}</td>
                 <td>{{team.percentage}}%</td>
             </tr>

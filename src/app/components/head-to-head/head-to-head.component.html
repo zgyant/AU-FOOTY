@@ -35,7 +35,7 @@
             <td>{{game.hteam}}</td>
             <td><span class="scores">{{game.hscore}} - {{game.ascore}}</span></td>
             <td>{{game.ateam}}</td>
-            <td>{{game.date}}</td>
+            <td>{{game.date | date: 'shortTime'}}, {{game.date | date: 'fullDate'}}</td>
         </tr>
     </tbody>
 </table>

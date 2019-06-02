@@ -47,7 +47,7 @@ export class ApiService {
   }
 
   getAllGamesAndResults(): Observable<Game[]> {
-    const url = this.API_ROOT + "?q=games;year=" + this.currentYear;
+    const url = this.API_ROOT + "?q=games;source=1;year=" + this.currentYear;
     return this.http.get<Game[]>(url).pipe(
       map(response => response),
       catchError(this.handleError('getAllGamesAndResults', []))
@@ -55,7 +55,7 @@ export class ApiService {
   }
 
  getNextFixtures(): Observable<Game[]> {
-    const url = this.API_ROOT + "?q=games;year=" + this.currentYear+";round="+this.currentRound+";complete=0";
+    const url = this.API_ROOT + "?q=games;year=" + this.currentYear+";round="+this.currentRound+";complete=0;source=1;";
     return this.http.get<Game[]>(url).pipe(
       map(response => response),
       catchError(this.handleError('getNextFixtures', []))

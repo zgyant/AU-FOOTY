@@ -73,7 +73,7 @@ ul li{list-style-type: none;}
 select {
   border: 1px solid rgba(0,0,0,.12);
   vertical-align: sub;
-  width: 100px;
+  width: 150px;
   display: inline-block;
   margin: 0 1rem 2rem 0;
 }

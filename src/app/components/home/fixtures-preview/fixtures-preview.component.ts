@@ -19,7 +19,7 @@ export class FixturesPreviewComponent implements OnInit {
       .subscribe(response => {
         this.games = (response['games'].filter(game => {
           return game.ateamid == this.myTeam.id || game.hteamid == this.myTeam.id;
-        })).slice(1,6);
+        })).slice(0,5);
       });
   }
 

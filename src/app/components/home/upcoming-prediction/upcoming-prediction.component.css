@@ -1,9 +1,9 @@
 .prediction{
   width: 100%;
-  /* border: 1px solid #efefef;
-  border-left: 5px solid rgb(10,20,50); */
   padding: 1rem;
-
+  border: 3px solid #272740;
+  border-left: none;
+  border-right: none;
 }
 .prediction img{height: 40px;margin: 0 01rem;}
 .prediction h3{margin: 0;}
@@ -20,8 +20,8 @@
   text-align: center;
 }
 .odds{width: 100%;}
-.odds-bar{display: block; background: #ededed; width: 100%; border-radius: 0.5rem;}
-.odds-fill{display: block;background: #fbbf00;border-radius: 0.5rem;}
-
+.odds-bar{position: relative; display: block; background: #ededed; width: 100%; height: 20px; border-radius: 0.5rem;}
+.odds-fill{position: absolute; left: 0; top: 0; display: block;background: #fbbf00;border-radius: 0.5rem; height: 100%;}
+.odds-fill.right{right: 0;left: auto;}
 .odds-tile{position: relative;}
 .odds-tile .tip{position: absolute;}
