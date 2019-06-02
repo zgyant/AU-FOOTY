@@ -35,9 +35,6 @@ export class UpcomingPredictionComponent implements OnInit {
           if(tip.tipteamid == this.myTeam.id)
             return tip;
         });
-        console.log("upcoming");
-        console.log(this.upcomingGameTip);
-        console.log("~upcoming~");
     });
   }
 }

@@ -62,7 +62,7 @@ export class TeamsComponent implements OnInit {
             }
 
 
-            function showPosition(position,gLat,gLong) {
+            function showPosition(position) {
                 myLat=position.coords.latitude;
                 myLong=position.coords.longitude;
             }
