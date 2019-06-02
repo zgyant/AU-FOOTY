@@ -28,7 +28,10 @@ export class LadderPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.myTeam = JSON.parse(this.cookieService.get('my-team'));
+    if(this.cookieService.get('my-team'))
+    {
+        this.myTeam = JSON.parse(this.cookieService.get('my-team'));
+    }
     this.getLadder();
   }
 }

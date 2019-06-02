@@ -21,16 +21,12 @@ export class HeadToHeadComponent implements OnInit {
     }
       parseData(games) {
           var allData=new Array();
-
-        var myTeamId=14;
-        var rivalTeamID=1;
         var currentdate = new Date();
         var self=this;
          $.each(games.games,function (i,obj) {
               const gameDate=new Date(obj.date);
-
-              console.log(self.myTeam.id);
-              if((obj.ateamid==self.myTeam.id || obj.hteamid==self.myTeam.id) && (obj.ateamid==self.myTeamR.id || obj.hteamid==self.myTeamR.id))
+              if((obj.ateamid==self.myTeam.id || obj.hteamid==self.myTeam.id) &&
+                  (obj.ateamid==self.myTeamR.id || obj.hteamid==self.myTeamR.id))
               {
                   if(gameDate<currentdate)
                   {
@@ -52,6 +48,9 @@ export class HeadToHeadComponent implements OnInit {
   ngOnInit() {
       this.getHeadtoHead();
       this.myTeam = JSON.parse(this.cookieService.get('my-team'));
-      this.myTeamR = JSON.parse(this.cookieService.get('my-rteam'));
+      if(this.cookieService.get('my-rteam'))
+      {
+          this.myTeamR = JSON.parse(this.cookieService.get('my-rteam'));
+      }else {}
   }
 }

@@ -12,26 +12,24 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./rival-team.component.css']
 })
 export class RivalTeamComponent implements OnInit {
-    constructor(private apiService: ApiService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute,
-    ) { }
-    teams: Team[];
-    isTeamSelected: boolean;
-    selectedTeamRival: Team;
 
+    constructor(private apiService: ApiService, private cookieService: CookieService) { }
 
-  ngOnInit() {
-      this.selectTeam();
-  }
+    teamsRival: Team[];
+    isRivalTeamSelected: boolean;
+    selectedRivalTeam: Team;
+
+    ngOnInit() {
+        this.selectTeam();
+    }
     selectTeam(): void{
         if(this.cookieService.check('my-rteam')){
-            this.isTeamSelected = true;
-            this.selectedTeamRival = JSON.parse(this.cookieService.get('my-rteam'));
+            this.isRivalTeamSelected = true;
+            this.selectedRivalTeam = JSON.parse(this.cookieService.get('my-rteam'));
         }else{
-            this.isTeamSelected = false;
+            this.isRivalTeamSelected = false;
             this.apiService.getAllTeams().subscribe(
-                teams => {this.teams = teams['teams'];
-                console.log(teams)
-                }
+                teamsRival => {this.teamsRival = teamsRival['teams']; console.log(teamsRival)}
             );
         }
     }
@@ -40,13 +38,10 @@ export class RivalTeamComponent implements OnInit {
         this.cookieService.delete('my-rteam');
         this.selectTeam();
     }
-    onSelect(team: Team): void{
-        this.cookieService.set('my-rteam', JSON.stringify(team));
-        this.isTeamSelected = true;
-        this.selectedTeamRival = team;
-        //this.router.navigateByUrl(this.router.url, {skipLocationChange: true});
+    onSelect(teamR: Team): void{
+        this.cookieService.set('my-rteam', JSON.stringify(teamR));
+        this.isRivalTeamSelected = true;
+        this.selectedRivalTeam = teamR;
         location.reload();
     }
-
-
 }

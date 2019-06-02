@@ -1,17 +1,17 @@
 <h2 class="page-heading">Head to head</h2>
 <div class="row">
-    <div class="col-md-6 text-center">
+    <div class="col-md-6 text-center" *ngIf="myTeam">
         <img  src="/assets/images/{{myTeam.id}}.png" alt="{{myTeam.name}}_logo" width="80"/>
             <h5>{{myTeam.name }}</h5>
     </div>
-    
+
     <div class="col-md-6 text-center">
-        <img  src="/assets/images/{{myTeamR.id}}.png" alt="{{myTeamR.name}}_logo" width="80"/>
-        <h5>{{myTeamR.name}}</h5>
+        <img   *ngIf="myTeamR" src="/assets/images/{{myTeamR.id}}.png" alt="{{myTeamR.name}}_logo" width="80"/>
+        <h5  *ngIf="myTeamR">{{myTeamR.name}}</h5>
         <div><app-rival-team></app-rival-team></div>
     </div>
 </div>
-<div class="col-md-8">
+<div class="col-md-8" *ngIf="myTeamR && myTeam">
 
     {{myTeam.name}}
     vs

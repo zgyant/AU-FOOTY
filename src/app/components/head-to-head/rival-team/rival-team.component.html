@@ -1,18 +1,19 @@
-<div *ngIf="isTeamSelected" class="myrteam">
-  <img class="inline-team-logo" src="/assets/images/{{selectedTeam.id}}.png" alt="{{selectedTeam.name}}_logo">
-  <span>{{selectedTeam.name}}</span>
+<div *ngIf="isRivalTeamSelected" class="myrteam">
+
+  <img class="inline-team-logo" src="/assets/images/{{selectedRivalTeam.id}}.png" alt="{{selectedRivalTeam.name}}_logo">
+  <span>{{selectedRivalTeam.name}}</span>
   <a class="muted text-blue" (click)="changeTeam()">(change)</a>
 </div>
-<div *ngIf="!isTeamSelected" class="overlay">
+<div *ngIf="!isRivalTeamSelected" class="overlay">
   <div class="popup">
     <div class="popup-header">
       <h3>Select your rival team</h3>
       Choose nearest
     </div>
     <div class="row">
-      <a *ngFor="let team of teams" (click)="onSelect(team)" class="col-md-2 col-sm-4 team">
-        <img  src="/assets/images/{{team.id}}.png" alt="{{team.name}}_logo" />
-        <span>{{team.name}}</span>
+      <a *ngFor="let rival of teamsRival" (click)="onSelect(rival)" class="col-md-2 col-sm-4 team">
+        <img  src="/assets/images/{{rival.id}}.png" alt="{{rival.name}}_logo" />
+        <span>{{rival.name}}</span>
       </a>
     </div>
   </div>
