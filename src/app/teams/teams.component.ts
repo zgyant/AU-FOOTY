@@ -55,6 +55,17 @@ export class TeamsComponent implements OnInit {
         {
             var objRequired;
             var games =new Array();
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                console.log("Geolocation is not supported by this browser.");
+            }
+
+
+            function showPosition(position,gLat,gLong) {
+                myLat=position.coords.latitude;
+                myLong=position.coords.longitude;
+            }
 
             $.each(data.games,function (i,obj) {
                 var gLat;
@@ -140,21 +151,6 @@ export class TeamsComponent implements OnInit {
             //“As a fan, I want to see the games that are playing at the closest stadium to my current location”
 
                 //my google api key: AIzaSyD5sNcTWrCpuDoXUOTh5w_cNKtHH_rToN0
-
-
-                    if (navigator.geolocation) {
-                        // navigator.geolocation.getCurrentPosition(showPosition);
-                    } else {
-                       console.log("Geolocation is not supported by this browser.");
-                    }
-
-
-                function showPosition(position,gLat,gLong) {
-                     myLat=position.coords.latitude;
-                     myLong=position.coords.longitude;
-                    }
-
-
 
             });
 
